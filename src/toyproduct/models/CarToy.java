@@ -1,13 +1,16 @@
-package kata6.toys;
+package toyproduct.models;
 
-public class Car {
+import toyproduct.Toy;
+
+public class CarToy implements Toy{
     final private Integer serialNumber;
     final String type = "car";
             
-    public Car(Integer serialNumber){
+    public CarToy(Integer serialNumber){
         this.serialNumber = serialNumber;
     }
     
+    @Override
     public Integer getSerialNumber(){
         return serialNumber;
     }
@@ -16,10 +19,12 @@ public class Car {
         return type;
     }
     
+    @Override
     public void pack(){
         System.out.printf("Packing car '%d'\n", this.serialNumber);
     }
     
+    @Override
     public void label(){
          System.out.printf("Labelling car '%d'\n", this.serialNumber);       
     }

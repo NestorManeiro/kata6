@@ -1,13 +1,16 @@
-package kata6.toys;
+package toyproduct.models;
 
-public class Helicopter {
+import toyproduct.Toy;
+
+public class HelicopterToy implements Toy{
     final private Integer serialNumber;
     final String type = "helicopter";
             
-    public Helicopter(Integer serialNumber){
+    public HelicopterToy(Integer serialNumber){
         this.serialNumber = serialNumber;
     }
     
+    @Override
     public Integer getSerialNumber(){
         return serialNumber;
     }
@@ -16,10 +19,12 @@ public class Helicopter {
         return type;
     }
     
+    @Override
     public void pack(){
         System.out.printf("Packing helicopter '%d'\n", this.serialNumber);
     }
     
+    @Override
     public void label(){
          System.out.printf("Labelling helicopter '%d'\n", this.serialNumber);       
     }
