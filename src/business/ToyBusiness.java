@@ -1,17 +1,19 @@
 package business;
 
+import factories.SerialNumberGenerator;
 import toyproduct.Toy;
 import factories.ToyFactory;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ToyBusiness {
-    private final ToyFactory toyFactory;
+    private final Map<String,ToyFactory> toyFactories= new HashMap<>();
     
-    public ToyBusiness(ToyFactory toyFactory){
-        this.toyFactory = toyFactory;
+    public void add(String name, ToyFactory toyFactory){
+        this.toyFactories.put(name, toyFactory);
     }
-    
     public Toy produceToy(String type){
-        return this.toyFactory.produceToy(type);
+        return this.toyFactories.get(type).produceToy();
     }
     
 }
